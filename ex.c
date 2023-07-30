@@ -103,7 +103,8 @@ void *waitForWrite(void *arg) {
 
     stop = 1;
 
-    printf("[*] /etc/passwd overwritten");
+    printf("[*] /etc/passwd overwritten\n");
+    printf("[!] Run below command :\necho 0 > /proc/sys/vm/dirty_writeback_centisecs");
 }
 
 int main(int argc,char *argv[]) {
