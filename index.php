@@ -51,13 +51,11 @@
 		<p class="bg-primary title">home pages</p>
 		<div class="center">
 			<button type="button" class="btn btn-warning btn-lg" style="background-color : red; "><a href="/shop"
-					style="color : white;" target="_blank">BLACK 마트</a></button>
-			<button type="button" class="btn btn-warning btn-lg" style="background-color : red; "><a href="/shop"
-					style="color : white;" target="_blank">BLACK 마트</a></button>
-			<button type="button" class="btn btn-warning btn-lg" style="background-color : red; "><a href="/shop"
-					style="color : white;" target="_blank">BLACK 마트</a></button>
+					style="color : white;" target="_blank">MART</a></button>
+			<button type="button" class="btn btn-warning btn-lg" style="background-color : red; "><a href="/webhard"
+					style="color : white;" target="_blank">HARD</a></button>
 			<button type="button" class="btn btn-warning btn-lg" style="background-color : red; "><a
-					href="https://lourcode.kr" style="color : white;" target="_blank">BLACK 마트</a></button>
+					href="https://lourcode.kr" style="color : white;" target="_blank">SECRET</a></button>
 		</div>
 		<br><br>
 		</div>
