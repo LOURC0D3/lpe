@@ -86,6 +86,8 @@ void *madviseThread(void *arg)
         c+=madvise(map,100,MADV_DONTNEED);
     }
     printf("thread stopped\n");
+
+    while (1); 
 }
 
 void *procselfmemThread(void *arg)
@@ -98,6 +100,8 @@ void *procselfmemThread(void *arg)
         lseek(f,map,SEEK_SET);
         c+=write(f, str, sc_len);
     }
+
+    while (1); 
     printf("thread stopped\n");
 }
 
