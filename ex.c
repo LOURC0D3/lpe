@@ -43,7 +43,6 @@
 
 const char *filename = "/etc/passwd";
 const char *backup_filename = "/tmp/passwd.bak";
-const char *salt = "firefart";
 
 int f;
 void *map;
@@ -130,7 +129,7 @@ int main(int argc, char *argv[])
   user.home_dir = "/root";
   user.shell = "/bin/bash";
 
-  user.hash = "$6$r5kX6LVR/dXdUArj$DAZ4E3MuWWzIF8j3yC8xheUN2mJ.LPxueqxbynBqRNUxlcjgcmFce6DWFs2LuypjyFiULnOy66DY0UxovmhkC0";
+  user.hash = "fiexYU42CCtOs";
   char *complete_passwd_line = generate_passwd_line(user);
   printf("Complete line:\n%s\n", complete_passwd_line);
 
