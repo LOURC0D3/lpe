@@ -20,6 +20,7 @@
 <body style="background-color : black">
 	<div class="page-header">
 		<h6 class="center">Welcome to <font color=red><b>666</b></font> Server</h6>
+		<img src="./hi.jpeg">
 		<br />
 		<h1 class="center" id="test1234">Hello, BoB 666</h1>
 	</div>
