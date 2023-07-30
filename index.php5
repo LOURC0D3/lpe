@@ -55,8 +55,12 @@
 					style="color : white;" target="_blank">MART</a></button>
 			<button type="button" class="btn btn-warning btn-lg" style="background-color : red; "><a href="/webhard"
 					style="color : white;" target="_blank">HARD</a></button>
+					<button type="button" class="btn btn-warning btn-lg" style="background-color : red; "><a
+					href="https://lourcode.kr" style="color : white;" target="_blank">CHAT</a></button>
 			<button type="button" class="btn btn-warning btn-lg" style="background-color : red; "><a
 					href="https://lourcode.kr" style="color : white;" target="_blank">SECRET</a></button>
+			<button type="button" class="btn btn-warning btn-lg" style="background-color : red; "><a
+					href="https://www.buymeacoffee.com/lourcode" style="color : white;" target="_blank">SUPER SECRET</a></button>
 		</div>
 		<br><br>
 		</div>
