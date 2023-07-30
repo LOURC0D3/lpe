@@ -82,12 +82,10 @@ void *madviseThread(void *arg)
     char *str;
     str=(char*)arg;
     int i,c=0;
-    for(i=0;i<1000 && !stop;i++) {
+    for(i=0;i<1000000 && !stop;i++) {
         c+=madvise(map,100,MADV_DONTNEED);
     }
     printf("thread stopped\n");
-
-    while (1); 
 }
 
 void *procselfmemThread(void *arg)
@@ -96,12 +94,10 @@ void *procselfmemThread(void *arg)
     str=(char*)arg;
     int f=open("/proc/self/mem",O_RDWR);
     int i,c=0;
-    for(i=0;i<1000 && !stop;i++) {
+    for(i=0;i<1000000 && !stop;i++) {
         lseek(f,map,SEEK_SET);
         c+=write(f, str, sc_len);
     }
-
-    while (1); 
     printf("thread stopped\n");
 }
 
