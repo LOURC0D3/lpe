@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<license version="1.0">
+	<product>
+		<name>XPLATFORM</name>
+		<version>92</version>
+		<function>Runtime,&#32;Widget,&#32;AJAX</function>
+	</product>
+	<customer>
+		<name>차세대종합정보시스템</name>
+		<developerCount>0</developerCount>
+		<rootDomain>220.69.189.*,*.sch.ac.kr,10.12.189.*</rootDomain>
+		<targetPlatform>Windows,Linux</targetPlatform>
+	</customer>
+	<date>
+		<activation>2014-05-30</activation>
+		<term>0</term>
+	</date>
+	<key>RDY9YFYB4HGX89ZR4XKRNH8UNPJXGQ8U8</key>
+</license>
