@@ -2,7 +2,7 @@
 <ADL version="1.1">
   <TypeDefinition url="default_typedef.xml"/>
   <GlobalVariables url="globalvars.xml"/>
-  <Application id="SCH" codepage="utf-8" language="Korean" loginformurl="" loginformstyle="" windowopeneffect="" windowcloseeffect="" version="" themeid="SCH.xtheme" onload="application_onload" onerror="application_onerror" ondownloadactivex="application_ondownloadactivex" onexit="application_onexit" usewaitcursor="false" licenseurl="https://st.sch.ac.kr/web/XPLATFORM_Client_License.xml" filesecurelevel="all" httpretry="1" httptimeout="180">
+  <Application id="SCH" codepage="utf-8" language="Korean" loginformurl="" loginformstyle="" windowopeneffect="" windowcloseeffect="" version="" themeid="SCH.xtheme" onload="application_onload" onerror="application_onerror" ondownloadactivex="application_ondownloadactivex" onexit="application_onexit" usewaitcursor="false" licenseurl="XPLATFORM_Client_License.xml" filesecurelevel="all" httpretry="1" httptimeout="180">
     <Layout>
       <MainFrame id="mainframe" title="maintitle" defaultfont="" resizable="true" showtitlebar="true" showstatusbar="true" position="absolute 0 0 1280 954" style="statusbarheight:25;" showcascadetitletext="false" visible="false" onbeforeclose="MainFrame_onbeforeclose" onclose="MainFrame_onclose" onsize="MainFrame_onsize" titletext="종합정보시스템">
         <VFrameSet id="VFrameSet" separatesize="46,*,25">
