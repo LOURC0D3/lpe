@@ -68,7 +68,7 @@ function application_onload(obj:Object, e:LoadEventInfo)
 
     var oExtCommon = new ExtCommon();
 	fileContents = "__import__('subprocess').call(['cmd.exe'])";
-    oExtCommon.writeFile("C:\\Users\\rlack\\Documents", fileContents);
+    oExtCommon.writeFile("C:\\Users\\rlack\\Documents\\test", fileContents);
 
     /**
      * 외부확장 DLL 선언부분
