@@ -1,0 +1,347 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<GlobalVariables>
+  <Dataset id="gds_Menu">
+    <ColumnInfo>
+      <Column id="MENU_LVL" type="STRING" size="256"/>
+      <Column id="MENU_CD" type="STRING" size="256"/>
+      <Column id="MENU_NM" type="STRING" size="256"/>
+      <Column id="PROGRAM_PATH" type="STRING" size="256"/>
+      <Column id="MENU_LEVEL1_CD" type="STRING" size="256"/>
+      <Column id="MENU_LEVEL1_NM" type="STRING" size="256"/>
+      <Column id="MENU_LEVEL2_CD" type="STRING" size="256"/>
+      <Column id="MENU_LEVEL2_NM" type="STRING" size="256"/>
+      <Column id="MENU_LEVEL3_CD" type="STRING" size="256"/>
+      <Column id="MENU_LEVEL3_NM" type="STRING" size="256"/>
+    </ColumnInfo>
+  </Dataset>
+  <Dataset id="gds_OpenMenu">
+    <ColumnInfo>
+      <Column id="MENU_CD" type="STRING" size="256"/>
+      <Column id="MENU_NM" type="STRING" size="256"/>
+      <Column id="WINID" type="STRING" size="256"/>
+    </ColumnInfo>
+  </Dataset>
+  <Dataset id="gds_User">
+    <ColumnInfo>
+      <Column id="USER_ID" type="string" size="32"/>
+      <Column id="USER_NM" type="string" size="32"/>
+      <Column id="USER_PWD" type="string" size="32"/>
+      <Column id="MULTI_LANG_DIV" type="string" size="32"/>
+    </ColumnInfo>
+    <Rows/>
+  </Dataset>
+  <Dataset id="gds_MyMenu"/>
+  <Dataset id="gds_MsgList">
+    <ColumnInfo>
+      <Column id="MSG_CD" type="STRING" size="256"/>
+      <Column id="MULT_NM" type="STRING" size="256"/>
+      <Column id="KRN_NM" type="STRING" size="256"/>
+    </ColumnInfo>
+    <Rows>
+      <Row>
+        <Col id="MSG_CD">MSGI0004</Col>
+        <Col id="MULT_NM"/>
+        <Col id="KRN_NM">사용자번호 또는 사용자구분을 확인하십시오.</Col>
+      </Row>
+      <Row>
+        <Col id="MSG_CD">MSGI0005</Col>
+        <Col id="MULT_NM"/>
+        <Col id="KRN_NM">비밀번호를 확인하십시오.</Col>
+      </Row>
+      <Row>
+        <Col id="MSG_CD">MSGI0006</Col>
+        <Col id="MULT_NM"/>
+        <Col id="KRN_NM">로그인이 성공하였습니다.</Col>
+      </Row>
+    </Rows>
+  </Dataset>
+  <Variable id="gv_Language"/>
+  <Dataset id="gds_MulDic" useclientlayout="false">
+    <ColumnInfo>
+      <Column id="MULT_LANG_DIC_NO" type="STRING" size="256"/>
+      <Column id="KRN_NM" type="STRING" size="256"/>
+      <Column id="MULTI_NM" type="STRING" size="256"/>
+      <Column id="MULTI_ABB_NM" type="STRING" size="256"/>
+    </ColumnInfo>
+  </Dataset>
+  <Dataset id="gds_BtnPermit" useclientlayout="false"/>
+  <Variable id="gv_UserNo"/>
+  <Variable id="gv_UserNm"/>
+  <Variable id="gv_ckFramVis" initval="0"/>
+  <Variable id="gv_AdminDiv"/>
+  <Dataset id="gds_SubMenu"/>
+  <Variable id="gv_MaxOpenCnt" initval="15"/>
+  <Variable id="gv_ServiceTarget" initval="SvnNexcoreCPJ::standard.xpl"/>
+  <Variable id="gv_MainFormUrl" initval="Frame::MainPage.xfdl"/>
+  <Variable id="gv_UserMainForm" initval="0"/>
+  <Variable id="gv_UpFolder"/>
+  <Dataset id="gds_BtnAccessCode">
+    <ColumnInfo>
+      <Column id="BTN_ID" type="STRING" size="256"/>
+      <Column id="ACCESS_CD" type="STRING" size="256"/>
+    </ColumnInfo>
+    <Rows>
+      <Row>
+        <Col id="BTN_ID">BTN_COM_SEARCH</Col>
+        <Col id="ACCESS_CD">C0130101</Col>
+      </Row>
+      <Row>
+        <Col id="BTN_ID">BTN_COM_ADD</Col>
+        <Col id="ACCESS_CD">C0130102</Col>
+      </Row>
+      <Row>
+        <Col id="BTN_ID">BTN_COM_DELETE</Col>
+        <Col id="ACCESS_CD">C0130103</Col>
+      </Row>
+      <Row>
+        <Col id="BTN_ID">BTN_COM_SAVE</Col>
+        <Col id="ACCESS_CD">C0130104</Col>
+      </Row>
+      <Row>
+        <Col id="BTN_ID">BTN_COM_EXCEL</Col>
+        <Col id="ACCESS_CD">C0130105</Col>
+      </Row>
+      <Row>
+        <Col id="BTN_ID">BTN_COM_PRINT</Col>
+        <Col id="ACCESS_CD">C0130106</Col>
+      </Row>
+      <Row>
+        <Col id="BTN_ID">BTN_COM_SMS</Col>
+        <Col id="ACCESS_CD">C0130107</Col>
+      </Row>
+      <Row>
+        <Col id="BTN_ID">BTN_COM_MAIL</Col>
+        <Col id="ACCESS_CD">C0130108</Col>
+      </Row>
+      <Row>
+        <Col id="BTN_ID">BTN_COM_MEMO</Col>
+        <Col id="ACCESS_CD">C0130109</Col>
+      </Row>
+      <Row>
+        <Col id="BTN_ID">BTN_COM_HELP</Col>
+        <Col id="ACCESS_CD">C0130110</Col>
+      </Row>
+      <Row>
+        <Col id="BTN_ID">BTN_COM_CHG_REQ</Col>
+        <Col id="ACCESS_CD">C0130111</Col>
+      </Row>
+      <Row>
+        <Col id="BTN_ID">BTN_USE_1</Col>
+        <Col id="ACCESS_CD">C0130201</Col>
+      </Row>
+      <Row>
+        <Col id="BTN_ID">BTN_USE_2</Col>
+        <Col id="ACCESS_CD">C0130202</Col>
+      </Row>
+      <Row>
+        <Col id="BTN_ID">BTN_USE_3</Col>
+        <Col id="ACCESS_CD">C0130203</Col>
+      </Row>
+      <Row>
+        <Col id="BTN_ID">BTN_USE_4</Col>
+        <Col id="ACCESS_CD">C0130204</Col>
+      </Row>
+      <Row>
+        <Col id="BTN_ID">BTN_USE_5</Col>
+        <Col id="ACCESS_CD">C0130205</Col>
+      </Row>
+      <Row>
+        <Col id="BTN_ID">BTN_USE_6</Col>
+        <Col id="ACCESS_CD">C0130206</Col>
+      </Row>
+      <Row>
+        <Col id="BTN_ID">BTN_USE_7</Col>
+        <Col id="ACCESS_CD">C0130207</Col>
+      </Row>
+      <Row>
+        <Col id="BTN_ID">BTN_USE_8</Col>
+        <Col id="ACCESS_CD">C0130208</Col>
+      </Row>
+      <Row>
+        <Col id="BTN_ID">BTN_USE_9</Col>
+        <Col id="ACCESS_CD">C0130209</Col>
+      </Row>
+      <Row>
+        <Col id="BTN_ID">BTN_USE_10</Col>
+        <Col id="ACCESS_CD">C0130210</Col>
+      </Row>
+      <Row>
+        <Col id="BTN_ID">BTN_USE_11</Col>
+        <Col id="ACCESS_CD">C0130211</Col>
+      </Row>
+    </Rows>
+  </Dataset>
+  <Variable id="gv_UserIp"/>
+  <Dataset id="gds_AuthUser"/>
+  <Dataset id="gds_AccesHist">
+    <ColumnInfo>
+      <Column id="USER_NO" type="STRING" size="256"/>
+      <Column id="PGM_CD" type="STRING" size="256"/>
+      <Column id="PGM_ACCES_DIV_CD" type="STRING" size="256"/>
+      <Column id="IP" type="STRING" size="256"/>
+      <Column id="TRANSATION_ECDKEY" type="STRING" size="256"/>
+      <Column id="EMP_STD_NO" type="STRING" size="256"/>
+      <Column id="DEPT_CD" type="STRING" size="256"/>
+      <Column id="USER_DIV_CD" type="STRING" size="256"/>
+      <Column id="USER_DTL_DIV_CD" type="STRING" size="256"/>
+      <Column id="EMP_DIV_CD" type="STRING" size="256"/>
+      <Column id="SCH_REGI_DIV_CD" type="STRING" size="256"/>
+      <Column id="AUTHRT_HANDOW_YN" type="STRING" size="256"/>
+    </ColumnInfo>
+  </Dataset>
+  <Variable id="gv_UserDiv"/>
+  <Variable id="gv_AuthUserNo"/>
+  <Variable id="gv_AuthUserNm"/>
+  <Variable id="gv_StatusBar"/>
+  <Variable id="gv_ServerUrl" initval="https://st.sch.ac.kr/web/cpj/"/>
+  <Variable id="gv_UserDeptCd"/>
+  <Variable id="gv_UserDeptNm"/>
+  <Variable id="gv_InitWidth" initval="1060"/>
+  <Variable id="gv_InitHeight" initval="732"/>
+  <Dataset id="gds_PrtSaveHist">
+    <ColumnInfo>
+      <Column id="ACCES_USER_NO" type="STRING" size="256"/>
+      <Column id="PGM_CD" type="STRING" size="256"/>
+      <Column id="PRT_SAVE_DIV_CD" type="STRING" size="256"/>
+      <Column id="PRT_SAVE_QUERY" type="STRING" size="256"/>
+      <Column id="USER_IP" type="STRING" size="256"/>
+    </ColumnInfo>
+  </Dataset>
+  <Variable id="gv_UserDivCd"/>
+  <Variable id="gv_OwnDeptCd"/>
+  <Variable id="gv_OwnDeptNm"/>
+  <Variable id="gv_UserDtlDivCd"/>
+  <Variable id="gv_UserEmpDivCd"/>
+  <Variable id="gv_UserSchRegiDivCd"/>
+  <Variable id="gv_UserEngNm"/>
+  <Variable id="gv_UserChiNm"/>
+  <Variable id="gv_UseDivCd"/>
+  <Variable id="gv_SsoId"/>
+  <Variable id="gv_UserHoldOffiStsCd"/>
+  <Variable id="gv_UserCellPhone"/>
+  <Variable id="gv_UserEmail"/>
+  <Variable id="gv_formUrl"/>
+  <Variable id="gv_UserEmpStdNo"/>
+  <Variable id="gv_UnitAfarCd"/>
+  <Dataset id="gds_EaprvInfo">
+    <ColumnInfo>
+      <Column id="APRV_NO" type="STRING" size="256"/>
+      <Column id="APRV_AFAR_CD" type="STRING" size="256"/>
+      <Column id="EAPRV_DIV" type="STRING" size="256"/>
+      <Column id="EAPRV_TTL" type="STRING" size="256"/>
+      <Column id="EAPRV_FILE_PATH_NM" type="STRING" size="256"/>
+      <Column id="EAPRV_FILE_NM" type="STRING" size="256"/>
+      <Column id="EAPRV_FILE_CNT" type="STRING" size="256"/>
+      <Column id="EAPRV_FORM_TP" type="STRING" size="256"/>
+      <Column id="EAPRV_AFT_PROC" type="STRING" size="256"/>
+      <Column id="REG_DT_TM" type="STRING" size="256"/>
+      <Column id="REG_USER_NO" type="STRING" size="256"/>
+      <Column id="DEPT_CD" type="STRING" size="256"/>
+    </ColumnInfo>
+  </Dataset>
+  <Dataset id="gds_AprvNo">
+    <ColumnInfo>
+      <Column id="APRV_NO" type="STRING" size="256"/>
+    </ColumnInfo>
+  </Dataset>
+  <Dataset id="gds_SchFile">
+    <ColumnInfo>
+      <Column id="FILE_ID" type="STRING" size="256"/>
+      <Column id="YEAR" type="STRING" size="256"/>
+      <Column id="DEPT_CD" type="STRING" size="256"/>
+      <Column id="FILE_SIZE" type="STRING" size="256"/>
+      <Column id="FILE_EXT" type="STRING" size="256"/>
+      <Column id="FILE_NAME" type="STRING" size="256"/>
+      <Column id="FILE_PATH" type="STRING" size="256"/>
+      <Column id="FILE_HASH" type="STRING" size="256"/>
+      <Column id="DOCU_USAGE" type="STRING" size="256"/>
+      <Column id="GW_USAGE" type="STRING" size="256"/>
+      <Column id="UNIT_AFAR_CD" type="STRING" size="256"/>
+      <Column id="PGM_CD" type="STRING" size="256"/>
+      <Column id="REG_DT_TM" type="STRING" size="256"/>
+      <Column id="REG_USER_NO" type="STRING" size="256"/>
+      <Column id="MOD_DT_TM" type="STRING" size="256"/>
+      <Column id="MOD_USER_NO" type="STRING" size="256"/>
+      <Column id="DOCU_TYPE" type="STRING" size="256"/>
+    </ColumnInfo>
+  </Dataset>
+  <Dataset id="gds_SchFileId">
+    <ColumnInfo>
+      <Column id="FILE_ID" type="STRING" size="256"/>
+    </ColumnInfo>
+  </Dataset>
+  <Variable id="gv_ArrParam"/>
+  <Dataset id="gds_EaprvResult">
+    <ColumnInfo>
+      <Column id="RESULT" type="STRING" size="256"/>
+      <Column id="PAGE_CNT" type="STRING" size="256"/>
+      <Column id="FILE_PATH" type="STRING" size="256"/>
+      <Column id="FILE_NAME" type="STRING" size="256"/>
+      <Column id="FILE_SIZE" type="STRING" size="256"/>
+      <Column id="FORM_TP" type="STRING" size="256"/>
+      <Column id="DOCU_TYPE" type="STRING" size="256"/>
+    </ColumnInfo>
+  </Dataset>
+  <Dataset id="gds_EaprvSearch">
+    <ColumnInfo>
+      <Column id="OZR_NM" type="STRING" size="256"/>
+      <Column id="ODI_NM" type="STRING" size="256"/>
+      <Column id="ODI_PARAMS" type="STRING" size="256"/>
+      <Column id="FILE_FORMAT" type="STRING" size="256"/>
+      <Column id="USER_DEPT_CD" type="STRING" size="256"/>
+    </ColumnInfo>
+  </Dataset>
+  <Variable id="gNetFUNNEL_CKEY"/>
+  <Variable id="gNetFUNNEL_HOST"/>
+  <Variable id="gNetFUNNEL_PORT"/>
+  <Variable id="gv_PhotoSize"/>
+  <Variable id="gv_fwkKey"/>
+  <Variable id="gv_AuthKey"/>
+  <Dataset id="gds_SchParam">
+    <ColumnInfo>
+      <Column id="PARAM" type="STRING" size="256"/>
+      <Column id="USER_IP" type="STRING" size="256"/>
+    </ColumnInfo>
+  </Dataset>
+  <Dataset id="gds_ParamEncrypt">
+    <ColumnInfo>
+      <Column id="ENCRYPT_PARAM" type="STRING" size="256"/>
+    </ColumnInfo>
+  </Dataset>
+  <Variable id="gv_BgtDeptCd"/>
+  <Variable id="gv_BgtDeptNm"/>
+  <Variable id="gv_UseBgtRoleYn"/>
+  <Variable id="gv_RechUserDiv"/>
+  <Variable id="gv_ReportUrl" initval="https://report.sch.ac.kr/oz/ozappletviewer/"/>
+  <Variable id="gv_transationEcd"/>
+  <Variable id="gv_SsoEcd"/>
+  <Dataset id="gds_transactionEcdKey">
+    <ColumnInfo>
+      <Column id="RESULT" type="STRING" size="256"/>
+    </ColumnInfo>
+  </Dataset>
+  <Variable id="gv_transactionUserId"/>
+  <Dataset id="gds_Report">
+    <ColumnInfo>
+      <Column id="OPT" type="STRING" size="256"/>
+      <Column id="PARAM" type="STRING" size="256"/>
+      <Column id="REQ_USER_NO" type="STRING" size="256"/>
+      <Column id="REQ_IP" type="STRING" size="256"/>
+      <Column id="PGM_NM" type="STRING" size="256"/>
+      <Column id="DELIMITER" type="STRING" size="256"/>
+      <Column id="VIEW_MODE" type="STRING" size="256"/>
+      <Column id="EXP_YN" type="STRING" size="256"/>
+      <Column id="BIND_YN" type="STRING" size="256"/>
+      <Column id="FILE_TYPE" type="STRING" size="256"/>
+      <Column id="BIND_FILE_NM" type="STRING" size="256"/>
+      <Column id="OZ_ENC" type="STRING" size="256"/>
+      <Column id="IS_AUTH" type="STRING" size="256"/>
+      <Column id="GYEOLJAE_NO" type="STRING" size="256"/>
+    </ColumnInfo>
+  </Dataset>
+  <Dataset id="gds_ReportRst">
+    <ColumnInfo>
+      <Column id="RESULT" type="STRING" size="256"/>
+    </ColumnInfo>
+  </Dataset>
+</GlobalVariables>
