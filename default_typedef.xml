@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TypeDefinition>
+  <Components>
+    <Component type="Bin" id="Div" classname="Div" module="XComCmp" version="2012.11.29.1"/>
+    <Component type="Bin" id="Button" classname="Button" module="XComCmp" version="2012.11.29.1"/>
+    <Component type="Bin" id="PopupDiv" classname="PopupDiv" module="XComCmp" version="2012.11.29.1"/>
+    <Component type="Bin" id="Combo" classname="Combo" module="XComCmp" version="2012.11.29.1"/>
+    <Component type="Bin" id="CheckBox" classname="CheckBox" module="XComCmp" version="2012.11.29.1"/>
+    <Component type="Bin" id="ListBox" classname="ListBox" module="XComCmp" version="2012.11.29.1"/>
+    <Component type="Bin" id="Edit" classname="Edit" module="XComCmp" version="2012.11.29.1"/>
+    <Component type="Bin" id="MaskEdit" classname="MaskEdit" module="XComCmp" version="2012.11.29.1"/>
+    <Component type="Bin" id="TextArea" classname="TextArea" module="XComCmp" version="2012.11.29.1"/>
+    <Component type="Bin" id="Menu" classname="Menu" module="XComCmp" version="2012.11.29.1"/>
+    <Component type="Bin" id="Tab" classname="Tab" module="XComCmp" version="2012.11.29.1"/>
+    <Component type="Bin" id="ImageViewer" classname="ImageViewer" module="XComCmp" version="2012.11.29.1"/>
+    <Component type="Bin" id="Radio" classname="Radio" module="XComCmp" version="2012.11.29.1"/>
+    <Component type="Bin" id="Shape" classname="Shape" module="XComCmp" version="2012.11.29.1"/>
+    <Component type="Bin" id="Calendar" classname="Calendar" module="XComCmp" version="2012.11.29.1"/>
+    <Component type="Bin" id="Static" classname="Static" module="XComCmp" version="2012.11.29.1"/>
+    <Component type="Bin" id="Grid" classname="Grid" module="XGridCmp" version="2012.11.29.1"/>
+    <Component type="Bin" id="Spin" classname="Spin" module="XComCmp" version="2012.11.29.1"/>
+    <Component type="Bin" id="PopupMenu" classname="PopupMenu" module="XComCmp" version="2012.11.29.1"/>
+    <Component type="Bin" id="Splitter" classname="Splitter" module="XComCmp" version="2012.11.29.1"/>
+    <Component type="Bin" id="GroupBox" classname="GroupBox" module="XComCmp" version="2012.11.29.1"/>
+    <Component type="Bin" id="ProgressBar" classname="ProgressBar" module="XComCmp" version="2012.11.29.1"/>
+    <Component type="Bin" id="ActiveX" classname="ActiveX" module="XAxCmp" version="2012.11.29.1"/>
+    <Component type="Bin" id="PropertyAnimation" classname="PropertyAnimation" module="XPlatformLib" version="2012.11.29.1"/>
+    <Component type="Bin" id="TransitionAnimation" classname="TransitionAnimation" module="XPlatformLib" version="2012.11.29.1"/>
+    <Component type="Bin" id="MoveAnimation" classname="MoveAnimation" module="XPlatformLib" version="2012.11.29.1"/>
+    <Component type="Bin" id="CompositeAnimation" classname="CompositeAnimation" module="XPlatformLib" version="2012.11.29.1"/>
+    <Component type="Bin" id="Dataset" classname="Dataset" module="XPlatformLib" version="2012.11.29.1"/>
+    <Component type="Bin" id="FilteredDataset" classname="FilteredDataset" module="XClassLib" version="2012.11.29.1"/>
+    <Component type="Bin" id="FileDialog" classname="FileDialog" module="XComCmp" version="2012.11.29.1"/>
+    <Component type="Bin" id="GraphicPath" classname="GraphicPath" module="XComCmp" version="2012.11.29.1"/>
+    <Component type="Bin" id="VirtualFile" classname="VirtualFile" module="XComCmp" version="2012.11.29.1"/>
+    <Component type="Bin" id="ExtCommon" classname="ExtCommon" module="ExtCommon" version="2022.7.8.2"/>
+    <Component type="Bin" id="ExportObject" classname="ExportObject" module="XExtAPI" version="2012.11.29.1"/>
+    <Component type="Bin" id="AppletComp" classname="AppletComp" module="XAppletComp" version="2012.11.29.1"/>
+    <Component type="Bin" id="WebBrowser" classname="WebBrowser" module="XWrapComp" version="2012.11.29.1"/>
+    <Component type="Bin" id="FileUpload" classname="FileUpload" module="XComCmp" version="2012.11.29.1"/>
+    <Component type="Bin" id="FileDownload" classname="FileDownload" module="XComCmp" version="2012.11.29.1"/>
+    <Component type="Composite" id="EmpNoDivComposite" classname="EmpNoDivComposite" module="apj_com_comp::EmpNoDivComposite.xfdl" version="1000"/>
+    <Component type="Composite" id="DeptCdComposite" classname="DeptCdComposite" module="apj_com_comp::DeptCdComposite.xfdl" version="1000"/>
+    <Component type="Composite" id="FromToDateComposite" classname="FromToDateComposite" module="apj_com_comp::FromToDateComposite.xfdl" version="1000"/>
+    <Component type="Composite" id="AbgBgtSingleFileComposite" classname="AbgBgtSingleFileComposite" module="apj_com_comp::AbgBgtSingleFileComposite.xfdl" version="1000"/>
+  </Components>
+  <Services>
+    <Service prefixid="Guide" type="form" url="./Guide/" version="0" communicationversion="0"/>
+    <Service prefixid="Css" type="file" url="./Css/" version="0" communicationversion="0"/>
+    <Service prefixid="tmpl" type="form" url="./tmpl/" version="0" communicationversion="0"/>
+    <Service prefixid="Frame" type="form" url="./frame/" version="0" communicationversion="0"/>
+    <Service prefixid="lib" type="js" url="./lib/" cachelevel="session" version="0" communicationversion="0"/>    
+    <Service prefixid="NetFUNNELlib" type="js" url="./NetFUNNELlib/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="NetFUNNEL" type="form" url="./NetFUNNEL/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="SvnNexcoreUPJ" type="JSP" url="https://st.sch.ac.kr/web/upj/" version="0" communicationversion="0" cachelevel="none"/>
+    <Service prefixid="SvnNexcoreGPJ" type="JSP" url="https://st.sch.ac.kr/web/gpj/" version="0" communicationversion="0" cachelevel="none"/>
+    <Service prefixid="SvnNexcoreAPJ" type="JSP" url="https://st.sch.ac.kr/web/apj/" version="0" communicationversion="0" cachelevel="none"/>
+    <Service prefixid="SvnNexcoreRPJ" type="JSP" url="https://st.sch.ac.kr/web/rpj/" version="0" communicationversion="0" cachelevel="none"/>
+    <Service prefixid="SvnNexcoreTPJ" type="JSP" url="https://st.sch.ac.kr/web/tpj/" version="0" communicationversion="0" cachelevel="none"/>
+    <Service prefixid="SvnNexcoreIPJ" type="JSP" url="https://st.sch.ac.kr/web/ipj/" version="0" communicationversion="0" cachelevel="none"/>
+    <Service prefixid="SvnNexcoreCPJ" type="JSP" url="https://st.sch.ac.kr/web/cpj/" version="0" communicationversion="0" cachelevel="none"/>
+    <Service prefixid="SvnNexcoreSPJ" type="JSP" url="https://st.sch.ac.kr/sugang/" version="0" communicationversion="0" cachelevel="none"/>
+    <Service prefixid="PHTDown" type="file" url="https://st.sch.ac.kr/web/cpj/" cachelevel="none" version="0" communicationversion="0"/>
+    <Service prefixid="apj_com_comp" type="form" url="./apj/com/comp/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_aac_base" type="form" url="./apj/aac/base/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_aac_evdn" type="form" url="./apj/aac/evdn/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_aac_fiac" type="form" url="./apj/aac/fiac/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_aac_fnst" type="form" url="./apj/aac/fnst/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_aac_fund" type="form" url="./apj/aac/fund/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_aac_inqu" type="form" url="./apj/aac/inqu/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_aac_popu" type="form" url="./apj/aac/popu/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_aac_slip" type="form" url="./apj/aac/slip/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_aac_spsc" type="form" url="./apj/aac/spsc/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_aac_taxm" type="form" url="./apj/aac/taxm/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_aas_base" type="form" url="./apj/aas/base/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_aas_dpre" type="form" url="./apj/aas/dpre/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_aas_good" type="form" url="./apj/aas/good/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_aas_land" type="form" url="./apj/aas/land/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_aas_weli" type="form" url="./apj/aas/weli/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_abg_appl" type="form" url="./apj/abg/appl/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_abg_base" type="form" url="./apj/abg/base/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_abg_exec" type="form" url="./apj/abg/exec/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_abg_expr" type="form" url="./apj/abg/expr/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_abg_form" type="form" url="./apj/abg/form/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_abg_modf" type="form" url="./apj/abg/modf/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_abg_popu" type="form" url="./apj/abg/popu/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_acm_base" type="form" url="./apj/acm/base/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_aee_base" type="form" url="./apj/aee/base/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_aee_eval" type="form" url="./apj/aee/eval/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_aga_carm" type="form" url="./apj/aga/carm/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_aga_docm" type="form" url="./apj/aga/docm/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_aga_ecmp" type="form" url="./apj/aga/ecmp/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_aga_lend" type="form" url="./apj/aga/lend/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_aie_base" type="form" url="./apj/aie/base/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_aie_eval" type="form" url="./apj/aie/eval/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_ais_bidd" type="form" url="./apj/ais/bidd/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_ais_buld" type="form" url="./apj/ais/buld/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_ais_cstr" type="form" url="./apj/ais/cstr/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_ais_fbdn" type="form" url="./apj/ais/fbdn/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_ais_fmnt" type="form" url="./apj/ais/fmnt/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_ais_matr" type="form" url="./apj/ais/matr/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_apc_aply" type="form" url="./apj/apc/aply/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_apc_base" type="form" url="./apj/apc/base/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_apc_bidd" type="form" url="./apj/apc/bidd/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_apc_book" type="form" url="./apj/apc/book/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_apc_cnsm" type="form" url="./apj/apc/cnsm/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_apc_cntr" type="form" url="./apj/apc/cntr/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_apc_equp" type="form" url="./apj/apc/equp/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_apc_gasm" type="form" url="./apj/apc/gasm/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_apc_grdg" type="form" url="./apj/apc/grdg/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_apc_monc" type="form" url="./apj/apc/monc/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_apc_repr" type="form" url="./apj/apc/repr/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_apc_rntl" type="form" url="./apj/apc/rntl/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_apc_stat" type="form" url="./apj/apc/stat/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_apc_tele" type="form" url="./apj/apc/tele/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_apc_watp" type="form" url="./apj/apc/watp/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_aph_apla" type="form" url="./apj/aph/apla/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_aph_apli" type="form" url="./apj/aph/apli/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_aph_base" type="form" url="./apj/aph/base/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_aph_judg" type="form" url="./apj/aph/judg/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_aph_pass" type="form" url="./apj/aph/pass/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_aph_scrn" type="form" url="./apj/aph/scrn/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_aph_stat" type="form" url="./apj/aph/stat/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_aph_webp" type="form" url="./apj/aph/webp/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_apl_plan" type="form" url="./apj/apl/plan/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_app_base" type="form" url="./apj/app/base/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_app_cert" type="form" url="./apj/app/cert/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_app_cmtt" type="form" url="./apj/app/cmtt/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_app_edup" type="form" url="./apj/app/edup/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_app_grup" type="form" url="./apj/app/grup/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_app_info" type="form" url="./apj/app/info/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_app_lctr" type="form" url="./apj/app/lctr/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_app_mile" type="form" url="./apj/app/mile/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_app_ofrd" type="form" url="./apj/app/ofrd/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_app_pbsv" type="form" url="./apj/app/pbsv/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_app_pinf" type="form" url="./apj/app/pinf/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_app_resy" type="form" url="./apj/app/resy/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_app_tmlc" type="form" url="./apj/app/tmlc/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_apr_pbrl" type="form" url="./apj/apr/pbrl/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_aps_base" type="form" url="./apj/aps/base/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_aps_cert" type="form" url="./apj/aps/cert/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_aps_cmtt" type="form" url="./apj/aps/cmtt/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_aps_grup" type="form" url="./apj/aps/grup/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_aps_info" type="form" url="./apj/aps/info/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_aps_ofrd" type="form" url="./apj/aps/ofrd/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_aps_pbsv" type="form" url="./apj/aps/pbsv/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_aps_pinf" type="form" url="./apj/aps/pinf/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_ari_base" type="form" url="./apj/ari/base/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_ari_eval" type="form" url="./apj/ari/eval/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_ase_base" type="form" url="./apj/ase/base/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_ase_eval" type="form" url="./apj/ase/eval/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_asf_safe" type="form" url="./apj/asf/safe/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_ash_acpt" type="form" url="./apj/ash/acpt/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_ash_apli" type="form" url="./apj/ash/apli/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_ash_base" type="form" url="./apj/ash/base/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_ash_judg" type="form" url="./apj/ash/judg/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_ash_logi" type="form" url="./apj/ash/logi/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_ash_pass" type="form" url="./apj/ash/pass/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_ash_pinq" type="form" url="./apj/ash/pinq/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_ash_pool" type="form" url="./apj/ash/pool/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_ash_rept" type="form" url="./apj/ash/rept/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_ash_scrn" type="form" url="./apj/ash/scrn/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_ash_stat" type="form" url="./apj/ash/stat/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_ash_webp" type="form" url="./apj/ash/webp/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_asl_bamt" type="form" url="./apj/asl/bamt/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_asl_base" type="form" url="./apj/asl/base/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_asl_basi" type="form" url="./apj/asl/basi/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_asl_calc" type="form" url="./apj/asl/calc/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_asl_epay" type="form" url="./apj/asl/epay/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_asl_etca" type="form" url="./apj/asl/etca/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_asl_lctr" type="form" url="./apj/asl/lctr/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_asl_payc" type="form" url="./apj/asl/payc/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_asl_payr" type="form" url="./apj/asl/payr/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_asl_pfnp" type="form" url="./apj/asl/pfnp/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_asl_reti" type="form" url="./apj/asl/reti/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_asl_sang" type="form" url="./apj/asl/sang/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_asl_schg" type="form" url="./apj/asl/schg/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_asl_sins" type="form" url="./apj/asl/sins/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="apj_asl_ytax" type="form" url="./apj/asl/ytax/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_com_comp" type="form" url="./gpj/com/comp/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_gee_acpt" type="form" url="./gpj/gee/acpt/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_gee_assm" type="form" url="./gpj/gee/assm/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_gee_base" type="form" url="./gpj/gee/base/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_gee_exam" type="form" url="./gpj/gee/exam/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_gee_rert" type="form" url="./gpj/gee/rert/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_gee_stat" type="form" url="./gpj/gee/stat/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_ggr_assm" type="form" url="./gpj/ggr/assm/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_ggr_base" type="form" url="./gpj/ggr/base/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_ggr_ceom" type="form" url="./gpj/ggr/ceom/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_ggr_decd" type="form" url="./gpj/ggr/decd/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_ggr_exam" type="form" url="./gpj/ggr/exam/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_ggr_objm" type="form" url="./gpj/ggr/objm/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_ggr_stat" type="form" url="./gpj/ggr/stat/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_ggr_thss" type="form" url="./gpj/ggr/thss/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_gle_base" type="form" url="./gpj/gle/base/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_gle_crcl" type="form" url="./gpj/gle/crcl/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_gle_eval" type="form" url="./gpj/gle/eval/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_gle_lamt" type="form" url="./gpj/gle/lamt/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_gle_osbj" type="form" url="./gpj/gle/osbj/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_gle_supl" type="form" url="./gpj/gle/supl/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_gle_tkls" type="form" url="./gpj/gle/tkls/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_gle_tmtl" type="form" url="./gpj/gle/tmtl/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_grc_adms" type="form" url="./gpj/grc/adms/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_grc_base" type="form" url="./gpj/grc/base/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_grc_serv" type="form" url="./gpj/grc/serv/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_grc_sinq" type="form" url="./gpj/grc/sinq/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_grc_smts" type="form" url="./gpj/grc/smts/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_gsr_adms" type="form" url="./gpj/gsr/adms/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_gsr_chgf" type="form" url="./gpj/gsr/chgf/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_gsr_rinq" type="form" url="./gpj/gsr/rinq/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_gsr_sreg" type="form" url="./gpj/gsr/sreg/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_gss_base" type="form" url="./gpj/gss/base/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_gss_borw" type="form" url="./gpj/gss/borw/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_gss_deed" type="form" url="./gpj/gss/deed/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_gss_schs" type="form" url="./gpj/gss/schs/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_gss_stat" type="form" url="./gpj/gss/stat/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_gtp_base" type="form" url="./gpj/gtp/base/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_gtp_expt" type="form" url="./gpj/gtp/expt/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_gtp_licn" type="form" url="./gpj/gtp/licn/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_gtp_nexm" type="form" url="./gpj/gtp/nexm/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="gpj_gtp_prac" type="form" url="./gpj/gtp/prac/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="rpj_com_comp" type="form" url="./rpj/com/comp/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="rpj_raa_astt" type="form" url="./rpj/raa/astt/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="rpj_raa_ract" type="form" url="./rpj/raa/ract/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="rpj_raa_rlab" type="form" url="./rpj/raa/rlab/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="rpj_rap_lics" type="form" url="./rpj/rap/lics/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="rpj_rap_lstt" type="form" url="./rpj/rap/lstt/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="rpj_rap_tech" type="form" url="./rpj/rap/tech/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="rpj_rdf_dirf" type="form" url="./rpj/rdf/dirf/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="rpj_rpr_finp" type="form" url="./rpj/rpr/finp/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="rpj_rpr_fstt" type="form" url="./rpj/rpr/fstt/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="rpj_rpr_rslt" type="form" url="./rpj/rpr/rslt/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="rpj_rpr_rstt" type="form" url="./rpj/rpr/rstt/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="rpj_rpr_yrly" type="form" url="./rpj/rpr/yrly/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="rpj_rra_erst" type="form" url="./rpj/rra/erst/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="rpj_rra_ormg" type="form" url="./rpj/rra/ormg/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="rpj_rrs_base" type="form" url="./rpj/rrs/base/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="rpj_rrs_dirf" type="form" url="./rpj/rrs/dirf/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="rpj_rrs_fpay" type="form" url="./rpj/rrs/fpay/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="rpj_rrs_tskm" type="form" url="./rpj/rrs/tskm/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="rpj_rrs_tskr" type="form" url="./rpj/rrs/tskr/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="rpj_rtg_iart" type="form" url="./rpj/rtg/iart/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_com_comp" type="form" url="./tpj/com/comp/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tal_almn" type="form" url="./tpj/tal/almn/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tal_aprt" type="form" url="./tpj/tal/aprt/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tal_lprt" type="form" url="./tpj/tal/lprt/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tal_paid" type="form" url="./tpj/tal/paid/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tce_base" type="form" url="./tpj/tce/base/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tce_eval" type="form" url="./tpj/tce/eval/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tce_eved" type="form" url="./tpj/tce/eved/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tce_exam" type="form" url="./tpj/tce/exam/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tce_exch" type="form" url="./tpj/tce/exch/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tce_fnsh" type="form" url="./tpj/tce/fnsh/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tce_lctr" type="form" url="./tpj/tce/lctr/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tce_lect" type="form" url="./tpj/tce/lect/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tce_lics" type="form" url="./tpj/tce/lics/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tce_lprt" type="form" url="./tpj/tce/lprt/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tce_sngj" type="form" url="./tpj/tce/sngj/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tce_strg" type="form" url="./tpj/tce/strg/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tce_stud" type="form" url="./tpj/tce/stud/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tce_tkls" type="form" url="./tpj/tce/tkls/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tdf_dprt" type="form" url="./tpj/tdf/dprt/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tdf_fund" type="form" url="./tpj/tdf/fund/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tdf_intc" type="form" url="./tpj/tdf/intc/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tdf_lprt" type="form" url="./tpj/tdf/lprt/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tdm_aply" type="form" url="./tpj/tdm/aply/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tdm_asgn" type="form" url="./tpj/tdm/asgn/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tdm_base" type="form" url="./tpj/tdm/base/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tdm_cnsl" type="form" url="./tpj/tdm/cnsl/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tdm_drml" type="form" url="./tpj/tdm/drml/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tdm_hmst" type="form" url="./tpj/tdm/hmst/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tdm_lprt" type="form" url="./tpj/tdm/lprt/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tdm_rsrv" type="form" url="./tpj/tdm/rsrv/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tdm_rwpn" type="form" url="./tpj/tdm/rwpn/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tdm_slct" type="form" url="./tpj/tdm/slct/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tdm_slep" type="form" url="./tpj/tdm/slep/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tdm_strg" type="form" url="./tpj/tdm/strg/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tds_hind" type="form" url="./tpj/tds/hind/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tds_mtcn" type="form" url="./tpj/tds/mtcn/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tds_prog" type="form" url="./tpj/tds/prog/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tfe_base" type="form" url="./tpj/tfe/base/" cachelevel="session" version="0" communicationversion="0"/>    
+    <Service prefixid="tpj_tfe_eval" type="form" url="./tpj/tfe/eval/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tfe_eved" type="form" url="./tpj/tfe/eved/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tfe_evex" type="form" url="./tpj/tfe/evex/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tfe_exam" type="form" url="./tpj/tfe/exam/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tfe_exch" type="form" url="./tpj/tfe/exch/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tfe_fnsh" type="form" url="./tpj/tfe/fnsh/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tfe_lctr" type="form" url="./tpj/tfe/lctr/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tfe_lect" type="form" url="./tpj/tfe/lect/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tfe_lics" type="form" url="./tpj/tfe/lics/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tfe_lprt" type="form" url="./tpj/tfe/lprt/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tfe_sngj" type="form" url="./tpj/tfe/sngj/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tfe_strg" type="form" url="./tpj/tfe/strg/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tfe_stud" type="form" url="./tpj/tfe/stud/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tfe_tkls" type="form" url="./tpj/tfe/tkls/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tie_aply" type="form" url="./tpj/tie/aply/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tie_base" type="form" url="./tpj/tie/base/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tie_cnsl" type="form" url="./tpj/tie/cnsl/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tie_drma" type="form" url="./tpj/tie/drma/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tie_even" type="form" url="./tpj/tie/even/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tie_exot" type="form" url="./tpj/tie/exot/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tie_exth" type="form" url="./tpj/tie/exth/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tie_flct" type="form" url="./tpj/tie/flct/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tie_intc" type="form" url="./tpj/tie/intc/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tie_lctr" type="form" url="./tpj/tie/lctr/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tie_lect" type="form" url="./tpj/tie/lect/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tie_lprt" type="form" url="./tpj/tie/lprt/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tie_lsot" type="form" url="./tpj/tie/lsot/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tie_lsth" type="form" url="./tpj/tie/lsth/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tie_prog" type="form" url="./tpj/tie/prog/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tie_sprg" type="form" url="./tpj/tie/sprg/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tie_stab" type="form" url="./tpj/tie/stab/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tke_aply" type="form" url="./tpj/tke/aply/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tke_base" type="form" url="./tpj/tke/base/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tke_cnsl" type="form" url="./tpj/tke/cnsl/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tke_eval" type="form" url="./tpj/tke/eval/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tke_exam" type="form" url="./tpj/tke/exam/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tke_exch" type="form" url="./tpj/tke/exch/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tke_fnsh" type="form" url="./tpj/tke/fnsh/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tke_lctr" type="form" url="./tpj/tke/lctr/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tke_lect" type="form" url="./tpj/tke/lect/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tke_lics" type="form" url="./tpj/tke/lics/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tke_lprt" type="form" url="./tpj/tke/lprt/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tke_sngj" type="form" url="./tpj/tke/sngj/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tke_strg" type="form" url="./tpj/tke/strg/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tke_stud" type="form" url="./tpj/tke/stud/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tke_tkls" type="form" url="./tpj/tke/tkls/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tle_aply" type="form" url="./tpj/tle/aply/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tle_base" type="form" url="./tpj/tle/base/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tle_eval" type="form" url="./tpj/tle/eval/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tle_fnsh" type="form" url="./tpj/tle/fnsh/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tle_icea" type="form" url="./tpj/tle/icea/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tle_lctr" type="form" url="./tpj/tle/lctr/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tle_lect" type="form" url="./tpj/tle/lect/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tle_lics" type="form" url="./tpj/tle/lics/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tle_lprt" type="form" url="./tpj/tle/lprt/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tle_lvrt" type="form" url="./tpj/tle/lvrt/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tle_sngj" type="form" url="./tpj/tle/sngj/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tle_strg" type="form" url="./tpj/tle/strg/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tle_stud" type="form" url="./tpj/tle/stud/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tle_tkls" type="form" url="./tpj/tle/tkls/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tmo_afar" type="form" url="./tpj/tmo/afar/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tmo_base" type="form" url="./tpj/tmo/base/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tmo_cfmr" type="form" url="./tpj/tmo/cfmr/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tmo_drug" type="form" url="./tpj/tmo/drug/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tmo_lprt" type="form" url="./tpj/tmo/lprt/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tmo_scre" type="form" url="./tpj/tmo/scre/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tsb_base" type="form" url="./tpj/tsb/base/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tsb_empm" type="form" url="./tpj/tsb/empm/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tsb_pfan" type="form" url="./tpj/tsb/pfan/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tsb_prsl" type="form" url="./tpj/tsb/prsl/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="tpj_tsb_purc" type="form" url="./tpj/tsb/purc/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_com_comp" type="form" url="./upj/com/comp/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_uce_cert" type="form" url="./upj/uce/cert/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_uec_open" type="form" url="./upj/uec/open/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_uec_aply" type="form" url="./upj/uec/aply/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_uee_stat" type="form" url="./upj/uee/stat/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_uem_milg" type="form" url="./upj/uem/milg/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_ugr_assm" type="form" url="./upj/ugr/assm/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_ugr_base" type="form" url="./upj/ugr/base/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_ugr_decd" type="form" url="./upj/ugr/decd/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_ugr_objm" type="form" url="./upj/ugr/objm/" cachelevel="session" version="0" communicationversion="0"/>
+	<Service prefixid="upj_ugr_simu" type="form" url="./upj/ugr/simu/" cachelevel="session" version="0" communicationversion="0"/>
+	<Service prefixid="upj_ugr_thex" type="form" url="./upj/ugr/thex/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_ule_atnd" type="form" url="./upj/ule/atnd/" cachelevel="session" version="0" communicationversion="0"/>
+	<Service prefixid="upj_ule_base" type="form" url="./upj/ule/base/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_ule_crcl" type="form" url="./upj/ule/crcl/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_ule_eval" type="form" url="./upj/ule/eval/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_ule_gbsc" type="form" url="./upj/ule/gbsc/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_ule_lamt" type="form" url="./upj/ule/lamt/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_ule_osbj" type="form" url="./upj/ule/osbj/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_ule_supl" type="form" url="./upj/ule/supl/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_ule_tkls" type="form" url="./upj/ule/tkls/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_ule_tmtl" type="form" url="./upj/ule/tmtl/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_uml_cvld" type="form" url="./upj/uml/cvld/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_uml_minq" type="form" url="./upj/uml/minq/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_uml_mreg" type="form" url="./upj/uml/mreg/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_uml_rfor" type="form" url="./upj/uml/rfor/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_urc_adms" type="form" url="./upj/urc/adms/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_urc_base" type="form" url="./upj/urc/base/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_urc_grds" type="form" url="./upj/urc/grds/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_urc_meds" type="form" url="./upj/urc/meds/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_urc_sinq" type="form" url="./upj/urc/sinq/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_urc_smts" type="form" url="./upj/urc/smts/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_urc_serv" type="form" url="./upj/urc/serv/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_ure_base" type="form" url="./upj/ure/base/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_ure_fiac" type="form" url="./upj/ure/fiac/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_ure_objm" type="form" url="./upj/ure/objm/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_ure_regi" type="form" url="./upj/ure/regi/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_ure_rtun" type="form" url="./upj/ure/rtun/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_usa_ipgm" type="form" url="./upj/usa/ipgm/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_usa_licm" type="form" url="./upj/usa/licm/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_usa_scsm" type="form" url="./upj/usa/scsm/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_usa_serv" type="form" url="./upj/usa/serv/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_usa_trgm" type="form" url="./upj/usa/trgm/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_usc_cnsn" type="form" url="./upj/usc/cnsn/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_usc_cnsr" type="form" url="./upj/usc/cnsr/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_usc_fnsh" type="form" url="./upj/usc/fnsh/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_usc_hnrs" type="form" url="./upj/usc/hnrs/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_usc_lctr" type="form" url="./upj/usc/lctr/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_usc_popu" type="form" url="./upj/usc/popu/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_usc_prog" type="form" url="./upj/usc/prog/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_usr_adms" type="form" url="./upj/usr/adms/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_usr_base" type="form" url="./upj/usr/base/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_usr_cert" type="form" url="./upj/usr/cert/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_usr_chgf" type="form" url="./upj/usr/chgf/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_usr_etc" type="form" url="./upj/usr/etc/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_usr_kedi" type="form" url="./upj/usr/kedi/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_usr_majr" type="form" url="./upj/usr/majr/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_usr_sreg" type="form" url="./upj/usr/sreg/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_uss_base" type="form" url="./upj/uss/base/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_uss_borw" type="form" url="./upj/uss/borw/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_uss_deed" type="form" url="./upj/uss/deed/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_uss_othr" type="form" url="./upj/uss/othr/" cachelevel="session" version="0" communicationversion="0"/>
+	<Service prefixid="upj_uss_redu" type="form" url="./upj/uss/redu/" cachelevel="session" version="0" communicationversion="0"/>
+	<Service prefixid="upj_uss_rslt" type="form" url="./upj/uss/rslt/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_uss_scho" type="form" url="./upj/uss/scho/" cachelevel="session" version="0" communicationversion="0"/>
+	<Service prefixid="upj_uss_schs" type="form" url="./upj/uss/schs/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_uss_stat" type="form" url="./upj/uss/stat/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_ust_intn" type="form" url="./upj/ust/intn/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_ust_prss" type="form" url="./upj/ust/prss/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_ust_sdat" type="form" url="./upj/ust/sdat/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_ust_sinq" type="form" url="./upj/ust/sinq/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_ust_stec" type="form" url="./upj/ust/stec/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_utp_base" type="form" url="./upj/utp/base/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_utp_expt" type="form" url="./upj/utp/expt/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_utp_licn" type="form" url="./upj/utp/licn/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_utp_nexm" type="form" url="./upj/utp/nexm/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="upj_utp_prac" type="form" url="./upj/utp/prac/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="cpj_com_comp" type="form" url="./cpj/com/comp/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="cpj_com_ciso" type="form" url="./cpj/com/ciso/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="cpj_com_code" type="form" url="./cpj/com/code/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="cpj_com_menu" type="form" url="./cpj/com/menu/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="cpj_com_role" type="form" url="./cpj/com/role/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="cpj_com_othr" type="form" url="./cpj/com/othr/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="cpj_com_hist" type="form" url="./cpj/com/hist/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="cpj_com_popu" type="form" url="./cpj/com/popu/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="cpj_com_smpl" type="form" url="./cpj/com/smpl/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="cpj_com_aprv" type="form" url="./cpj/com/aprv/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="cpj_com_porf" type="form" url="./cpj/com/porf/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="cpj_edu_sam1" type="form" url="./cpj/edu/sam1/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="cpj_edu_sam2" type="form" url="./cpj/edu/sam2/" cachelevel="session" version="0" communicationversion="0"/>
+    <Service prefixid="cpj_edu_hm" type="form" url="./cpj/edu/hm/" cachelevel="session" version="0" communicationversion="0"/>
+  </Services>
+  <Update>
+    <Item systemtype="win32" url="https://st.sch.ac.kr/web/install/Component/"/>
+  </Update>
+</TypeDefinition>
